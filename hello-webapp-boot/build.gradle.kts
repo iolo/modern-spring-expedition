@@ -12,7 +12,16 @@ repositories {
 	mavenCentral()
 }
 
+ext["jakarta-servlet.version"] = "5.0.0"
+
+configurations {
+  all {
+	  exclude(group="org.springframework.boot", module="spring-boot-starter-tomcat")
+  }
+}
+
 dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-jetty")
   implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
